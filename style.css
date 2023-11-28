@@ -3,14 +3,8 @@
     --theme-secondary: #eaeaea;
     --theme-tertiary: #ffffff;
 
-    --theme-accent-blue: #00c0ff;
-    --theme-accent-yellow: #ffcd00;
-    --theme-accent-magenta: #ff00f4;
-
-    --cubesat-red: #ec1c24;
-    --cubesat-blue: #000058;
-
-
+    --theme-red: #ec1c24;
+    --theme-blue: #000058;
 
     --theme-purple: #7474a4;
     --header-height: 50px;
@@ -42,6 +36,8 @@ h6 {
 p,
 span,
 small {
+    text-align: justify;
+    text-justify: inter-word;
     color: var(--theme-secondary);
 }
 
@@ -58,7 +54,7 @@ button:hover {
 }
 
 .button {
-    padding: 10px 20px;
+    padding: 0px 10px;
 }
 
 .button:hover {
@@ -97,8 +93,7 @@ header::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(to right, var(--theme-purple), var(--cubesat-blue));
-    /* background: linear-gradient(to right, var(--theme-accent-blue), var(--theme-accent-magenta)); */
+    background: var(--theme-primary);
     opacity: calc(var(--scroll) / 500);
     z-index: -1;
 }
@@ -151,50 +146,9 @@ header nav>a.active {
     text-underline-offset: 5px;
 }
 
-/* header #light-switch-wrapper {
-    position: relative;
-    width: 3em;
-    height: 1.5em;
-    margin: 0;
-}
-
-header #light-switch-wrapper>input#light-switch {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-header #light-switch-wrapper>#slider {
-    outline: 3px solid var(--theme-white);
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: var(--theme-time);
-    border-radius: 0.75em;
-}
-
-header #light-switch-wrapper>#slider:before {
-    position: absolute;
-    content: "";
-    height: 1em;
-    width: 1em;
-    left: 0.25em;
-    top: 0.25em;
-    background: url("assets/icons/Moon.svg") no-repeat center center / cover;
-    transition: var(--theme-time);
-    border-radius: 50%;
-}
-
-header #light-switch-wrapper>input#light-switch:checked+#slider:before {
-    transform: translateX(1.5em);
-} */
-
 main,
 main .full-width {
-    display: grid !important;
+    display: grid;
     grid-template-columns: [full-width-start] var(--main-margin) [content-start] 1fr [content-end] var(--main-margin) [full-width-end];
 }
 
@@ -205,11 +159,6 @@ main .full-width>*:not(.full-width) {
 
 main .full-width {
     grid-column: full-width;
-}
-
-main section p {
-    text-align: justify;
-    text-justify: inter-word;
 }
 
 main section#hero {
@@ -240,10 +189,10 @@ main section#faq {
     flex-direction: column;
 }
 
-/* TODO: Use CSS classes to affect the SVG */
-/* main section#faq div.two-wrapper { */
-/* background: url('assets/backgrounds/BG1.png') no-repeat fixed center / cover; */
-/* } */
+main section#faq {
+    height: calc(100svh - var(--header-height));
+    background: url("assets/images/Team.jpg") no-repeat center center / cover;
+}
 
 main section#faq div.two {
     display: flex;
@@ -263,14 +212,9 @@ main section#bulletin {
 main section#bulletin div#slideshow {
     aspect-ratio: 16 / 9;
     width: 80%;
+    background: #00ffff;
+    box-shadow: inset 10px 10px 10px 10px;
 }
-
-/* main section #social-media-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3em;
-} */
 
 footer {
     padding-top: 1em;
