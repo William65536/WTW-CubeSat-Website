@@ -3,13 +3,11 @@
     --theme-secondary: #eaeaea;
     --theme-tertiary: #ffffff;
 
-    --theme-red: #ec1c24;
-    --theme-blue: #000058;
+    --theme-accent-red: #ec1c24;
+    --theme-accent-blue: #000058;
 
-    --theme-purple: #7474a4;
     --header-height: 50px;
     --main-margin: 1.5in;
-    --theme-aspect-ratio: 16 / 9;
     --theme-time: 0.5s;
     --body-color: var(--theme-primary);
 }
@@ -29,7 +27,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
     color: var(--theme-tertiary);
 }
 
@@ -41,19 +40,17 @@ small {
     color: var(--theme-secondary);
 }
 
+button {
+    border: none;
+    outline: none;
+}
+
 button:hover {
     cursor: pointer;
 }
 
-.glass {
-    border: 1px solid var(--theme-secondary);
-    background-color: var(--theme-secondary);
-    background: linear-gradient(to right bottom, #c0c0c0c0, #c0c0c040);
-    backdrop-filter: blur(8px);
-    border-radius: 10px;
-}
-
 .button {
+    border: 2px solid var(--theme-secondary);
     padding: 0px 10px;
 }
 
@@ -75,7 +72,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Poppins, sans-serif;
     background-color: var(--body-color);
 }
 
@@ -84,6 +81,7 @@ header {
     width: 100%;
     height: var(--header-height);
     z-index: 99;
+    /* box-shadow: 0 0 10px 5px #00000060; */
 }
 
 header::before {
@@ -112,7 +110,7 @@ header div#header-wrapper>div.header-padding {
 header a#logo {
     display: block;
     transition: var(--theme-time);
-    /* TODO: Make the width dynamic */
+    /* TODO: Make the width dependent on the SVG's width */
     width: calc(850 / 700 * var(--header-height));
     height: inherit;
     background: url("assets/CubeSatLogoWhite.svg") no-repeat center center / cover;
@@ -125,6 +123,10 @@ header div#header-wrapper>div#title-wrapper {
     width: calc(100% - 2 * var(--main-margin));
 }
 
+header div#header-wrapper>div#title-wrapper img {
+    height: 25px;
+}
+
 header nav {
     display: flex;
     justify-content: space-evenly;
@@ -133,7 +135,6 @@ header nav {
 }
 
 header nav>a {
-    color: var(--theme-tertiary);
     font-size: 1.25em;
     box-sizing: border-box;
     /* TODO: Make the padding take up all of the cell */
@@ -178,7 +179,6 @@ main section#hero div#hero-text-wrapper {
 main section#hero a#join {
     width: fit-content;
     /* padding: 0 0.5em; */
-    color: var(--theme-tertiary);
     font-size: 1.25rem;
     transition: var(--theme-time);
     text-decoration: none;
@@ -189,9 +189,13 @@ main section#faq {
     flex-direction: column;
 }
 
-main section#faq {
-    height: calc(100svh - var(--header-height));
-    background: url("assets/images/Team.jpg") no-repeat center center / cover;
+main section#faq>* {
+    /* height: calc(100svh - var(--header-height)); */
+    height: calc(100svh);
+}
+
+main section#faq div.image-back {
+    background: linear-gradient(#00000060, #00000060), url("assets/images/Team.jpg") no-repeat fixed center / cover;
 }
 
 main section#faq div.two {
@@ -204,16 +208,41 @@ main section#faq div.two>* {
     width: 45%;
 }
 
-main section#bulletin {
+main section#bulletin div#slidedeck {
+    width: 100%;
     display: grid;
-    place-items: center;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
 }
 
-main section#bulletin div#slideshow {
-    aspect-ratio: 16 / 9;
-    width: 80%;
-    background: #00ffff;
-    box-shadow: inset 10px 10px 10px 10px;
+main section#bulletin div#slidedeck>* {
+    grid-row: 1;
+}
+
+main section#bulletin button.move {
+    background: transparent;
+    /* TODO: Make this dependent on the SVG size */
+    aspect-ratio: 30 / 100;
+    width: 20px;
+    background: url("assets/icons/Arrow.svg") no-repeat center center / cover;
+}
+
+main section#bulletin button#left {
+    grid-column: 1 / 2;
+    transform: translateX(10px) rotateZ(0.5turn);
+}
+
+main section#bulletin img#slidedeck-img {
+    aspect-ratio: 21 / 9;
+    width: 100%;
+    object-fit: cover;
+    grid-column: 1 / 4;
+    z-index: -1;
+}
+
+main section#bulletin button#right {
+    grid-column: 3 / 4;
+    transform: translateX(-10px);
 }
 
 footer {
@@ -241,7 +270,7 @@ footer a:hover {
     text-decoration: none;
 }
 
-footer img {
+footer a {
     width: 50px;
     height: 50px;
 }
@@ -262,16 +291,14 @@ footer a#mail-icon {
     background: url("assets/icons/Mail.svg") no-repeat center center / cover;
 }
 
-#scroll-button {
+button#scroll-button {
     display: none;
     position: fixed;
-    bottom: 3em;
-    right: calc((var(--main-margin) - 3em) * 0.5);
+    bottom: calc((var(--main-margin) - 50px) / 2);
+    right: calc((var(--main-margin) - 50px) / 2);
     z-index: 99;
-    width: 3em;
-    height: 3em;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    outline: none;
-    border: none;
     background: url("assets/icons/Rocket.svg") no-repeat center center / cover;
 }

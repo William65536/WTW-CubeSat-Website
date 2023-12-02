@@ -7,6 +7,7 @@
     <title>WTW CubeSat</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <!-- Poppins font import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- TODO: Get a bold version of Poppins -->
@@ -16,7 +17,9 @@
 </head>
 
 <body>
+    <!-- TODO: Fix sizes so that everyting looks good on load up -->
     <header>
+        <!-- TODO: Make this consistent with the grid scheme used elsewhere -->
         <div id="header-wrapper">
             <div class="header-padding">
                 <a id="logo" href="" title="WTW CubeSat"></a>
@@ -27,6 +30,7 @@
                     <a class="active" href="">Home</a>
                     <a href="">Outreach</a>
                     <a href="">About</a>
+                    <a href="">Resources</a>
                 </nav>
             </div>
         </div>
@@ -36,17 +40,12 @@
             <div id="hero-text-wrapper">
                 <!-- TODO: Make this parallax -->
                 <div id="hero-text">
-                    <!-- <p>Our mission at the W.T. Woodson CubeSat Club is to enhance and further our knowledge of outer space, and
-                        to provide others with opportunities to assist with our goal of space exploration. We commit ourselves
-                        to the values of respect, responsibility, teamwork, collaboration, and integrity through the means of
-                        our actions, words, and work ethic. We seek to inquire about innovative ideas to share amongst others;
-                        and that we can utilize this gained knowledge to benefit our awareness of the miraculous world that
-                        encompasses us.</p> -->
-                    <p>Our mission at the W.T. Woodson CubeSat Club is to advance space exploration knowledge, foster
-                        respect, responsibility, teamwork, collaboration, and integrity. We seek innovative ideas,
-                        sharing knowledge to enhance our understanding of the miraculous world beyond.</p>
+                    <p>Our mission at the Woodson CubeSat Club is to improve our awareness of outer space and to give
+                        other individuals the chance to help us in our mission of space exploration. Furthermore, we
+                        seek to create novel ideas and learn information to share with others.
+                    </p>
                 </div>
-                <a id="join" class="glass button" href="">Join</a>
+                <a id="join" class="button" href="">Join</a>
             </div>
         </section>
         <section class="full-width" style="width: 100%; height: 100px; background-color: #00ffff;">
@@ -54,7 +53,6 @@
             <a href="#bulletin">Jump to Bulletin</a>
         </section>
         <section id="faq" class="full-width">
-            <!-- TODO: Rename "two-wrapper" -->
             <div class="full-width">
                 <div class="two">
                     <img src="assets/images/CubeSatExample.jpg" alt="CubeSat Example">
@@ -67,20 +65,19 @@
                 </div>
             </div>
             <div class="full-width image-back">
-                <div>
+                <div class="two">
                     <div>
                         <h3>Who are we?</h3>
                         <p>Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Lorem ipsum dolor sit
                             amet consectetur adipiscing elit. Ipsum suspendisse ultrices gravida dictum fusce ut. Eros
                             in cursus turpis massa tincidunt dui ut ornare.</p>
                     </div>
-                    <!-- <img src="assets/images/Team.jpg" alt="Our Team"> -->
                 </div>
             </div>
-            <!-- <div class="full-width two-wrapper">
+            <div class="full-width">
                 <div class="two">
                     <img src="assets/images/CLSI.jpg" alt="The Electron rocket launching CubeSats for NASA">
-                    <div class="glass panel">
+                    <div>
                         <h3>How?</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Pellentesque id nibh tortor id aliquet. Sollicitudin nibh sit
@@ -88,33 +85,35 @@
                     </div>
                 </div>
             </div>
-            <div class="full-width two-wrapper">
+            <div class="full-width image-back">
                 <div class="two">
-                    <div class="glass panel">
+                    <div>
                         <h3>Why?</h3>
                         <p>Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Lorem ipsum dolor sit
                             amet consectetur adipiscing elit. Ipsum suspendisse ultrices gravida dictum fusce ut. Eros
                             in cursus turpis massa tincidunt dui ut ornare.</p>
                     </div>
-                    <img src="assets/images/CubeSatExample.jpg" alt="CubeSat Example">
                 </div>
             </div>
-            <div class="full-width two-wrapper">
+            <div class="full-width">
                 <div class="two">
                     <img src="assets/images/CubeSatExample.jpg" alt="CubeSat Example">
-                    <div class="glass panel">
+                    <div>
                         <h3>How can I help?</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Pellentesque id nibh tortor id aliquet. Sollicitudin nibh sit
                             amet commodo nulla facilisi nullam. Congue eu consequat ac felis donec.</p>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </section>
-        <section id="bulletin">
-            <!-- <h2>Bulletin</h2> -->
-            <div id="slideshow"></div>
-            <figure data-behold-id="jk9y5Gw9UuRnjrySYyfx"></figure>
+        <section id="bulletin" class="full-width">
+            <div id="slidedeck">
+                <button id="left" class="move"></button>
+                <img src="assets/images/CLSI.jpg" alt="" id="slidedeck-img">
+                <button id="right" class="move"></button>
+            </div>
+            <!-- <figure data-behold-id="jk9y5Gw9UuRnjrySYyfx"></figure> -->
         </section>
     </main>
     <footer>

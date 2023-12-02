@@ -3,18 +3,28 @@ function scrollToTop() {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
-// TODO: Maybe scroll down on reload
-// TODO: Stop the page from scrolling up on reload
+// Scrolling
+{
+    // TODO: Maybe scroll down on reload
+    // TODO: Stop the page from scrolling up on reload
 
-const scrollButton = document.querySelector('button#scroll-button');
+    const scrollButton = document.querySelector('button#scroll-button');
 
-function onScroll() {
+    function onScroll() {
+        document.documentElement.style.setProperty('--scroll', document.documentElement.scrollTop);
+        scrollButton.style.display = document.documentElement.scrollTop > 1_500 ? 'block' : 'none';
+    }
+
     document.documentElement.style.setProperty('--scroll', document.documentElement.scrollTop);
-    scrollButton.style.display = document.documentElement.scrollTop > 1_500 ? 'block' : 'none';
+
+    window.addEventListener('scroll', onScroll);
+
+    onScroll(); // TODO: Find out why this doesn't work
 }
 
-document.documentElement.style.setProperty('--scroll', document.documentElement.scrollTop);
+// Slidedeck
+{
+    const slidedeckImgMap = new Map();
 
-window.addEventListener('scroll', onScroll);
-
-onScroll(); // TODO: Find out why this doesn't work
+    const slidedeckImg = document.querySelector('#slidedeck-img');
+}
